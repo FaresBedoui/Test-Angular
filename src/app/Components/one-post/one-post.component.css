@@ -1,0 +1,16 @@
+.InterBody{
+  margin: 4%;
+  font-size: 200%;
+  line-height: 200%;
+}
+strong{
+  font-size: xx-large;
+  color: #6A1B9A ;
+}
+small{
+  font-size: small;
+  font-style: italic;
+}
+button{
+  margin-right: 4%;
+}

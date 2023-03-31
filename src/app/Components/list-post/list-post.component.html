@@ -1,0 +1,19 @@
+<div class="InterBody">
+  <input type="text" [(ngModel)]="filterValue" placeholder="Rechercher..." class="form-control my-4">
+  <mat-grid-list cols="4" rowHeight="2:1">
+    <mat-grid-tile style="background-color:rgb(106, 27, 154, 0.4); color: white; font-size: x-large; cursor: pointer; "  *ngFor="let article of ArticleSer | filter: filterValue; let i = index" routerLink="/list-post/{{i}}">
+      <div >
+        <strong>{{ article.title }}</strong>
+        <mat-grid-tile-footer style="background-color:#9c27b0"> {{ article.category }} <br> {{ datePipe.transform(article.date, 'dd-MMMM-yyyy') }} </mat-grid-tile-footer>
+        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+          <button mat-icon-button color="primary" routerLink="/list-post/update/{{ i }}">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="onDelete(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

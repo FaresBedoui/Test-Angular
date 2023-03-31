@@ -1,0 +1,28 @@
+<div class="InterBody">
+  <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="article-title" class="form-label">Title:</label>
+      <input type="text" formControlName="title" id="article-title" class="form-control">
+      <mat-error *ngIf="articleForm.controls['title'].hasError('required') && articleForm.controls['title'].touched">
+        Title is required.
+      </mat-error>
+    </div>
+
+    <div>
+      <label for="article-content" class="form-label">Content:</label>
+      <textarea formControlName="content" id="article-content" class="form-control"></textarea>
+      <mat-error *ngIf="articleForm.controls['content'].hasError('required')&& articleForm.controls['content'].touched">
+        Content is required.
+      </mat-error>
+    </div>
+
+    <div>
+      <label for="article-category" class="form-label">Category:</label>
+      <input type="text" formControlName="category" id="article-category" class="form-control">
+      <mat-error *ngIf="articleForm.controls['category'].hasError('required') && articleForm.controls['category'].touched">
+        category is required.
+      </mat-error>
+    </div>
+    <button mat-flat-button color="primary" type="submit" [disabled]="articleForm.invalid">Add Article</button>
+  </form>
+</div>
